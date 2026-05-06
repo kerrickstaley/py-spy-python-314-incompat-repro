@@ -4,8 +4,11 @@ sudo env "PATH=$PATH" bash <<'EOF'
 uv run py-spy --version
 uv run python --version
 uv run sleep.py 3 &
-pid="$!"
+uv_pid="$!"
+echo "uv_pid=$uv_pid"
+python_pid="$(pgrep -P $uv_pid)"
+echo "python_pid=$python_pid"
 sleep 1
-uv run py-spy dump --pid "$pid"
+uv run py-spy dump --pid "$python_pid"
 wait
 EOF
