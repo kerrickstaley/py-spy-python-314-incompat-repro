@@ -6,9 +6,9 @@ uv run python --version
 uv run sleep.py 3 &
 uv_pid="$!"
 echo "uv_pid=$uv_pid"
+sleep 1
 python_pid="$(pgrep -P $uv_pid)"
 echo "python_pid=$python_pid"
-sleep 1
 uv run py-spy dump --pid "$python_pid"
 wait
 EOF
