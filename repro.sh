@@ -1,4 +1,5 @@
 #!/bin/bash
+uv run python -c ''  # init venv
 sudo env "PATH=$PATH" bash <<'EOF'
 uv run py-spy --version
 uv run python --version
