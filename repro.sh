@@ -1,6 +1,10 @@
 #!/bin/bash
+sudo env "PATH=$PATH" bash <<'EOF'
+uv run py-spy --version
+uv run python --version
 uv run sleep.py 3 &
 pid="$!"
 sleep 1
-sudo env "PATH=$PATH" uv run py-spy dump --pid "$pid"
+uv run py-spy dump --pid "$pid"
 wait
+EOF
